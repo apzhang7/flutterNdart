@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-//imports material from flutter that handles a lot of work
+// imports material from flutter that handles a lot of work
 import 'intro.dart';
+// where our customWidget comes from
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  //stateful widget updates itself
-  const MyApp({Key? key}) : super(key: key); //constructor
+  // stateful widget updates itself unlike final stateless
+  const MyApp({Key? key}) : super(key: key); // constructor to framework
 
   @override
   State<StatefulWidget> createState() {
+    // created for stateful widgets
     return MyAppState();
   }
 }
@@ -27,10 +29,11 @@ class MyAppState extends State<MyApp> {
     });
   }
 
-  // starting widget that is stagnant
-  @override //stylistic to show you aren't accidentally overriding it
+  // stateless is widget that is stagnant
+  @override // stylistic to show you aren't accidentally overriding it
   Widget build(BuildContext context) {
     var topics = [
+      // list in dart is like that of java
       'Introduction to Flutter!',
       'Flutter is better!',
       'Widgeting!'
@@ -38,30 +41,35 @@ class MyAppState extends State<MyApp> {
 
     return MaterialApp(
       home: Scaffold(
+        // the base visible widget pretty much
         appBar: AppBar(
           title: const Text('This is Flutter and Dart!'),
           backgroundColor: Colors.lightBlueAccent,
         ),
         body: Column(children: [
+          // column stacks the widgets
           Container(
+            // container groups widgets together
             alignment: Alignment.topCenter,
             padding: const EdgeInsets.all(20),
             margin: EdgeInsets.all(15),
             color: Colors.cyan,
             child: Column(children: [
+              // child is the content shown
               Container(
-                  //intro widget
-                  padding: const EdgeInsets.all(20),
+                  // introduction widget
+                  padding: const EdgeInsets.all(20), // customization!
                   margin: EdgeInsets.all(5),
                   child: Column(children: [
+                    // children means > 1
                     Text(
                       topics.elementAt(0),
                       style: TextStyle(fontSize: 25, color: Colors.white),
                     ),
-                    customWidget(), //instead of a raised button we have this
+                    customWidget(), // instead of a raised button we use this
                   ])),
               Container(
-                  //flutter is better widget
+                  // flutter is better widget
                   padding: const EdgeInsets.all(20),
                   margin: EdgeInsets.all(5),
                   child: Column(children: [
@@ -75,7 +83,8 @@ class MyAppState extends State<MyApp> {
                         style: TextStyle(fontSize: 25),
                       ),
                       onPressed: () {
-                        print('this is a widget');
+                        // on button press
+                        print('this is a widget'); // prints to dev console
                       },
                     ),
                   ])),
@@ -89,6 +98,7 @@ class MyAppState extends State<MyApp> {
                       style: TextStyle(fontSize: 25),
                     ),
                     FloatingActionButton.large(
+                      // customizable button!
                       child: const Text(
                         'press me',
                         style: TextStyle(fontSize: 20, color: Colors.red),
@@ -100,7 +110,7 @@ class MyAppState extends State<MyApp> {
                       style: TextStyle(fontSize: 15),
                     ),
                     Text(
-                      '$_counter',
+                      '$_counter', // updates the counter on screen
                       style: TextStyle(fontSize: 15),
                     ),
                   ]))
@@ -111,3 +121,4 @@ class MyAppState extends State<MyApp> {
     );
   }
 }
+// thanks for reading all the way through!

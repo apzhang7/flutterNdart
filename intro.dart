@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; // does the same thing as main
 
 class customWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      width: double.infinity, // centers it
       child: RaisedButton(
         color: Colors.pinkAccent,
         child: const Text(
@@ -12,7 +12,7 @@ class customWidget extends StatelessWidget {
           style: TextStyle(fontSize: 25),
         ),
         onPressed: () {
-          print('welcome to flutter with Angela and Ivan!');
+          print('welcome to flutter with Angela and Ivan!'); // dev
         },
       ),
     );
